@@ -1,4 +1,4 @@
-package ru.detmir.sap.model.cheque;
+package ru.detmir.sap.mapping.model;
 
 /*
  * OpenAPI definition
