@@ -16,6 +16,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
+import javax.xml.bind.annotation.adapters.XmlAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -34,6 +36,7 @@ public class ItemDto {
    * Gets or Sets itemType
    */
   @JsonAdapter(ItemTypeEnum.Adapter.class)
+  @XmlJavaTypeAdapter(ItemTypeEnum.XMLAdapter.class)
   public enum ItemTypeEnum {
     DONATION("donation"),
     PRODUCT("product"),
@@ -73,6 +76,19 @@ public class ItemDto {
         return ItemTypeEnum.fromValue((String)(value));
       }
     }
+
+    public static class XMLAdapter extends XmlAdapter<String, ItemTypeEnum> {
+
+      @Override
+      public ItemTypeEnum unmarshal(String v) throws Exception {
+        return ItemTypeEnum.fromValue(v);
+      }
+
+      @Override
+      public String marshal(ItemTypeEnum v) throws Exception {
+        return v.getValue();
+      }
+    }
   }  @SerializedName("itemType")
   private ItemTypeEnum itemType = null;
 
@@ -98,6 +114,7 @@ public class ItemDto {
    * Gets or Sets ndsCode
    */
   @JsonAdapter(NdsCodeEnum.Adapter.class)
+  @XmlJavaTypeAdapter(NdsCodeEnum.XMLAdapter.class)
   public enum NdsCodeEnum {
     NONE("NONE"),
     NDS_0("NDS_0"),
@@ -139,6 +156,21 @@ public class ItemDto {
         return NdsCodeEnum.fromValue((String)(value));
       }
     }
+
+    public static class XMLAdapter extends XmlAdapter<String, NdsCodeEnum> {
+
+      @Override
+      public NdsCodeEnum unmarshal(String v) throws Exception {
+        return NdsCodeEnum.fromValue(v);
+      }
+
+      @Override
+      public String marshal(NdsCodeEnum v) throws Exception {
+        return v.getValue();
+      }
+    }
+
+
   }  @SerializedName("ndsCode")
   private NdsCodeEnum ndsCode = null;
 

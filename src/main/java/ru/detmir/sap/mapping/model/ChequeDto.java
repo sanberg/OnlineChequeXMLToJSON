@@ -22,6 +22,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -66,6 +68,7 @@ public class ChequeDto {
      * Gets or Sets type
      */
     @JsonAdapter(TypeEnum.Adapter.class)
+    @XmlJavaTypeAdapter(TypeEnum.XMLAdapter.class)
     public enum TypeEnum {
         SALE("sale"),
         REFUND("refund");
@@ -103,6 +106,19 @@ public class ChequeDto {
                 return TypeEnum.fromValue((String)(value));
             }
         }
+
+        public static class XMLAdapter extends XmlAdapter<String, TypeEnum> {
+
+            @Override
+            public TypeEnum unmarshal(String v) throws Exception {
+                return TypeEnum.fromValue(v);
+            }
+
+            @Override
+            public String marshal(TypeEnum v) throws Exception {
+                return v.getValue();
+            }
+        }
     }  @SerializedName("type")
     private TypeEnum type = null;
 
@@ -131,6 +147,7 @@ public class ChequeDto {
      * Gets or Sets channel
      */
     @JsonAdapter(ChannelEnum.Adapter.class)
+    @XmlJavaTypeAdapter(ChannelEnum.XMLAdapter.class)
     public enum ChannelEnum {
         ONLINE("online"),
         OFFLINE("offline");
@@ -168,6 +185,18 @@ public class ChequeDto {
                 return ChannelEnum.fromValue((String)(value));
             }
         }
+        public static class XMLAdapter extends XmlAdapter<String, ChannelEnum> {
+
+            @Override
+            public ChannelEnum unmarshal(String v) throws Exception {
+                return ChannelEnum.fromValue(v);
+            }
+
+            @Override
+            public String marshal(ChannelEnum v) throws Exception {
+                return v.getValue();
+            }
+        }
     }  @SerializedName("channel")
     private ChannelEnum channel = null;
 
@@ -196,6 +225,7 @@ public class ChequeDto {
      * Gets or Sets chain
      */
     @JsonAdapter(ChainEnum.Adapter.class)
+    @XmlJavaTypeAdapter(ChainEnum.XMLAdapter.class)
     public enum ChainEnum {
         ZOOZAVR("zoozavr"),
         DETMIR("detmir");
@@ -231,6 +261,19 @@ public class ChequeDto {
             public ChainEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
                 return ChainEnum.fromValue((String)(value));
+            }
+        }
+
+        public static class XMLAdapter extends XmlAdapter<String, ChainEnum> {
+
+            @Override
+            public ChainEnum unmarshal(String v) throws Exception {
+                return ChainEnum.fromValue(v);
+            }
+
+            @Override
+            public String marshal(ChainEnum v) throws Exception {
+                return v.getValue();
             }
         }
     }  @SerializedName("chain")
@@ -282,6 +325,7 @@ public class ChequeDto {
      * Gets or Sets paymentMethod
      */
     @JsonAdapter(PaymentMethodEnum.Adapter.class)
+    @XmlJavaTypeAdapter(PaymentMethodEnum.XMLAdapter.class)
     public enum PaymentMethodEnum {
         CARD("card"),
         CASH("cash"),
@@ -327,6 +371,19 @@ public class ChequeDto {
             public PaymentMethodEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
                 return PaymentMethodEnum.fromValue((String)(value));
+            }
+        }
+
+        public static class XMLAdapter extends XmlAdapter<String, PaymentMethodEnum> {
+
+            @Override
+            public PaymentMethodEnum unmarshal(String v) throws Exception {
+                return PaymentMethodEnum.fromValue(v);
+            }
+
+            @Override
+            public String marshal(PaymentMethodEnum v) throws Exception {
+                return v.getValue();
             }
         }
     }  @SerializedName("paymentMethod")
