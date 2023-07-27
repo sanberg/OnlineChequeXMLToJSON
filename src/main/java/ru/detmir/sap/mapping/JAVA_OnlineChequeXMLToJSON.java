@@ -28,7 +28,7 @@ public class JAVA_OnlineChequeXMLToJSON extends AbstractTransformation {
             String server = in.getInputParameters().getString("server");
             String topicName = in.getInputParameters().getString("topicName");
             ChequeDto chequeFromInputXML = JAXB.unmarshal(new StringReader(sourcexml.toString()), ChequeDto.class);
-            Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyyy HH:mm:ss").create();
+            Gson gson = new GsonBuilder().setDateFormat("dd.MM.yyyy HH:mm:ss").create();
             String decoded = new String(Base64.getEncoder().encode(gson.toJson(chequeFromInputXML).getBytes()));
             String resXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                     "<ns1:CommonKafkaMessageRequest xmlns:ns1=\"urn:DetMir.ru:Hybris:Common\">" +
