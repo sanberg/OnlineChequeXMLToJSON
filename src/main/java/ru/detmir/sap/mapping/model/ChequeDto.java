@@ -13,8 +13,6 @@ package ru.detmir.sap.mapping.model;
  */
 
 
-import java.util.Objects;
-
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -148,6 +146,9 @@ public class ChequeDto {
 
     @SerializedName("createdTsSource")
     private Long createdTsSource = null;
+
+    @SerializedName("msgId")
+    private String msgId = null;
 
     @SerializedName("sourceRetailCheque")
     private SourceRetailChequeDto sourceRetailCheque = null;
@@ -459,132 +460,6 @@ public class ChequeDto {
         return this;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        ChequeDto chequeDto = (ChequeDto) o;
-
-        if (id != null ? !id.equals(chequeDto.id) : chequeDto.id != null) return false;
-        if (externalId != null ? !externalId.equals(chequeDto.externalId) : chequeDto.externalId != null) return false;
-        if (retailTransactionNumber != null ? !retailTransactionNumber.equals(chequeDto.retailTransactionNumber) : chequeDto.retailTransactionNumber != null)
-            return false;
-        if (retailCalendarDay != null ? !retailCalendarDay.equals(chequeDto.retailCalendarDay) : chequeDto.retailCalendarDay != null)
-            return false;
-        if (orderGuid != null ? !orderGuid.equals(chequeDto.orderGuid) : chequeDto.orderGuid != null) return false;
-        if (orderCode != null ? !orderCode.equals(chequeDto.orderCode) : chequeDto.orderCode != null) return false;
-        if (groupCode != null ? !groupCode.equals(chequeDto.groupCode) : chequeDto.groupCode != null) return false;
-        if (groupGuid != null ? !groupGuid.equals(chequeDto.groupGuid) : chequeDto.groupGuid != null) return false;
-        if (totalAmount != null ? !totalAmount.equals(chequeDto.totalAmount) : chequeDto.totalAmount != null)
-            return false;
-        if (totalDiscount != null ? !totalDiscount.equals(chequeDto.totalDiscount) : chequeDto.totalDiscount != null)
-            return false;
-        if (createdTs != null ? !createdTs.equals(chequeDto.createdTs) : chequeDto.createdTs != null) return false;
-        if (type != chequeDto.type) return false;
-        if (atolData != null ? !atolData.equals(chequeDto.atolData) : chequeDto.atolData != null) return false;
-        if (description != null ? !description.equals(chequeDto.description) : chequeDto.description != null)
-            return false;
-        if (url != null ? !url.equals(chequeDto.url) : chequeDto.url != null) return false;
-        if (userEmail != null ? !userEmail.equals(chequeDto.userEmail) : chequeDto.userEmail != null) return false;
-        if (userName != null ? !userName.equals(chequeDto.userName) : chequeDto.userName != null) return false;
-        if (userPhone != null ? !userPhone.equals(chequeDto.userPhone) : chequeDto.userPhone != null) return false;
-        if (createdTsSource != null ? !createdTsSource.equals(chequeDto.createdTsSource) : chequeDto.createdTsSource != null)
-            return false;
-        if (channel != chequeDto.channel) return false;
-        if (items != null ? !items.equals(chequeDto.items) : chequeDto.items != null) return false;
-        if (prepaid != null ? !prepaid.equals(chequeDto.prepaid) : chequeDto.prepaid != null) return false;
-        if (loyalty != null ? !loyalty.equals(chequeDto.loyalty) : chequeDto.loyalty != null) return false;
-        if (cashier != null ? !cashier.equals(chequeDto.cashier) : chequeDto.cashier != null) return false;
-        if (posId != null ? !posId.equals(chequeDto.posId) : chequeDto.posId != null) return false;
-        if (address != null ? !address.equals(chequeDto.address) : chequeDto.address != null) return false;
-        if (placeOfSettlement != null ? !placeOfSettlement.equals(chequeDto.placeOfSettlement) : chequeDto.placeOfSettlement != null)
-            return false;
-        if (chain != chequeDto.chain) return false;
-        if (loyaltyPromoText != null ? !loyaltyPromoText.equals(chequeDto.loyaltyPromoText) : chequeDto.loyaltyPromoText != null)
-            return false;
-        if (promoText != null ? !promoText.equals(chequeDto.promoText) : chequeDto.promoText != null) return false;
-        if (giftCard != null ? !giftCard.equals(chequeDto.giftCard) : chequeDto.giftCard != null) return false;
-        if (giftCardTs != null ? !giftCardTs.equals(chequeDto.giftCardTs) : chequeDto.giftCardTs != null) return false;
-        if (giftCardAmount != null ? !giftCardAmount.equals(chequeDto.giftCardAmount) : chequeDto.giftCardAmount != null)
-            return false;
-        if (bonusCard != null ? !bonusCard.equals(chequeDto.bonusCard) : chequeDto.bonusCard != null) return false;
-        if (redeemed != null ? !redeemed.equals(chequeDto.redeemed) : chequeDto.redeemed != null) return false;
-        if (awarded != null ? !awarded.equals(chequeDto.awarded) : chequeDto.awarded != null) return false;
-        if (loyaltyBalance != null ? !loyaltyBalance.equals(chequeDto.loyaltyBalance) : chequeDto.loyaltyBalance != null)
-            return false;
-        if (loyaltyActivePoints != null ? !loyaltyActivePoints.equals(chequeDto.loyaltyActivePoints) : chequeDto.loyaltyActivePoints != null)
-            return false;
-        if (loyaltyInactivePoints != null ? !loyaltyInactivePoints.equals(chequeDto.loyaltyInactivePoints) : chequeDto.loyaltyInactivePoints != null)
-            return false;
-        if (ndsMap != null ? !ndsMap.equals(chequeDto.ndsMap) : chequeDto.ndsMap != null) return false;
-        if (sent != null ? !sent.equals(chequeDto.sent) : chequeDto.sent != null) return false;
-        if (mustBeSent != null ? !mustBeSent.equals(chequeDto.mustBeSent) : chequeDto.mustBeSent != null) return false;
-        if (paymentMethod != chequeDto.paymentMethod) return false;
-        if (cardAmount != null ? !cardAmount.equals(chequeDto.cardAmount) : chequeDto.cardAmount != null) return false;
-        if (cashAmount != null ? !cashAmount.equals(chequeDto.cashAmount) : chequeDto.cashAmount != null) return false;
-        if (giftCardDetails != null ? !giftCardDetails.equals(chequeDto.giftCardDetails) : chequeDto.giftCardDetails != null)
-            return false;
-        if (properties != null ? !properties.equals(chequeDto.properties) : chequeDto.properties != null) return false;
-        if (groupPublicId != null ? !groupPublicId.equals(chequeDto.groupPublicId) : chequeDto.groupPublicId != null)
-            return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (externalId != null ? externalId.hashCode() : 0);
-        result = 31 * result + (retailTransactionNumber != null ? retailTransactionNumber.hashCode() : 0);
-        result = 31 * result + (retailCalendarDay != null ? retailCalendarDay.hashCode() : 0);
-        result = 31 * result + (orderGuid != null ? orderGuid.hashCode() : 0);
-        result = 31 * result + (orderCode != null ? orderCode.hashCode() : 0);
-        result = 31 * result + (groupCode != null ? groupCode.hashCode() : 0);
-        result = 31 * result + (groupGuid != null ? groupGuid.hashCode() : 0);
-        result = 31 * result + (totalAmount != null ? totalAmount.hashCode() : 0);
-        result = 31 * result + (totalDiscount != null ? totalDiscount.hashCode() : 0);
-        result = 31 * result + (createdTs != null ? createdTs.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + (atolData != null ? atolData.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (url != null ? url.hashCode() : 0);
-        result = 31 * result + (userEmail != null ? userEmail.hashCode() : 0);
-        result = 31 * result + (userName != null ? userName.hashCode() : 0);
-        result = 31 * result + (userPhone != null ? userPhone.hashCode() : 0);
-        result = 31 * result + (createdTsSource != null ? createdTsSource.hashCode() : 0);
-        result = 31 * result + (channel != null ? channel.hashCode() : 0);
-        result = 31 * result + (items != null ? items.hashCode() : 0);
-        result = 31 * result + (prepaid != null ? prepaid.hashCode() : 0);
-        result = 31 * result + (loyalty != null ? loyalty.hashCode() : 0);
-        result = 31 * result + (cashier != null ? cashier.hashCode() : 0);
-        result = 31 * result + (posId != null ? posId.hashCode() : 0);
-        result = 31 * result + (address != null ? address.hashCode() : 0);
-        result = 31 * result + (placeOfSettlement != null ? placeOfSettlement.hashCode() : 0);
-        result = 31 * result + (chain != null ? chain.hashCode() : 0);
-        result = 31 * result + (loyaltyPromoText != null ? loyaltyPromoText.hashCode() : 0);
-        result = 31 * result + (promoText != null ? promoText.hashCode() : 0);
-        result = 31 * result + (giftCard != null ? giftCard.hashCode() : 0);
-        result = 31 * result + (giftCardTs != null ? giftCardTs.hashCode() : 0);
-        result = 31 * result + (giftCardAmount != null ? giftCardAmount.hashCode() : 0);
-        result = 31 * result + (bonusCard != null ? bonusCard.hashCode() : 0);
-        result = 31 * result + (redeemed != null ? redeemed.hashCode() : 0);
-        result = 31 * result + (awarded != null ? awarded.hashCode() : 0);
-        result = 31 * result + (loyaltyBalance != null ? loyaltyBalance.hashCode() : 0);
-        result = 31 * result + (loyaltyActivePoints != null ? loyaltyActivePoints.hashCode() : 0);
-        result = 31 * result + (loyaltyInactivePoints != null ? loyaltyInactivePoints.hashCode() : 0);
-        result = 31 * result + (ndsMap != null ? ndsMap.hashCode() : 0);
-        result = 31 * result + (sent != null ? sent.hashCode() : 0);
-        result = 31 * result + (mustBeSent != null ? mustBeSent.hashCode() : 0);
-        result = 31 * result + (paymentMethod != null ? paymentMethod.hashCode() : 0);
-        result = 31 * result + (cardAmount != null ? cardAmount.hashCode() : 0);
-        result = 31 * result + (cashAmount != null ? cashAmount.hashCode() : 0);
-        result = 31 * result + (giftCardDetails != null ? giftCardDetails.hashCode() : 0);
-        result = 31 * result + (properties != null ? properties.hashCode() : 0);
-        result = 31 * result + (groupPublicId != null ? groupPublicId.hashCode() : 0);
-        return result;
-    }
-
     public String getRetailCalendarDay() {
         return retailCalendarDay;
     }
@@ -858,6 +733,19 @@ public class ChequeDto {
     public ChequeDto createdTsSource(Long createdTsSource) {
         this.createdTsSource = createdTsSource;
         return this;
+    }
+
+    public ChequeDto msgId(String msgId) {
+        this.msgId = msgId;
+        return this;
+    }
+
+    public String getMsgId() {
+        return msgId;
+    }
+
+    public void setMsgId(String msgId) {
+        this.msgId = msgId;
     }
 
     /**
@@ -1413,57 +1301,189 @@ public class ChequeDto {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ru.detmir.sap.model.cheque.ChequeDto {\n");
+        return "ChequeDto{" +
+               "id=" + id +
+               ", externalId='" + externalId + '\'' +
+               ", retailTransactionNumber='" + retailTransactionNumber + '\'' +
+               ", retailCalendarDay='" + retailCalendarDay + '\'' +
+               ", orderGuid='" + orderGuid + '\'' +
+               ", orderCode='" + orderCode + '\'' +
+               ", groupCode='" + groupCode + '\'' +
+               ", groupGuid='" + groupGuid + '\'' +
+               ", totalAmount=" + totalAmount +
+               ", totalDiscount=" + totalDiscount +
+               ", createdTs=" + createdTs +
+               ", type=" + type +
+               ", atolData=" + atolData +
+               ", description='" + description + '\'' +
+               ", url='" + url + '\'' +
+               ", userEmail='" + userEmail + '\'' +
+               ", userName='" + userName + '\'' +
+               ", userPhone='" + userPhone + '\'' +
+               ", createdTsSource=" + createdTsSource +
+               ", msgId='" + msgId + '\'' +
+               ", sourceRetailCheque=" + sourceRetailCheque +
+               ", channel=" + channel +
+               ", items=" + items +
+               ", prepaid=" + prepaid +
+               ", loyalty=" + loyalty +
+               ", cashier='" + cashier + '\'' +
+               ", posId='" + posId + '\'' +
+               ", address='" + address + '\'' +
+               ", placeOfSettlement='" + placeOfSettlement + '\'' +
+               ", chain=" + chain +
+               ", loyaltyPromoText='" + loyaltyPromoText + '\'' +
+               ", promoText='" + promoText + '\'' +
+               ", giftCard='" + giftCard + '\'' +
+               ", giftCardTs=" + giftCardTs +
+               ", giftCardAmount=" + giftCardAmount +
+               ", bonusCard='" + bonusCard + '\'' +
+               ", redeemed=" + redeemed +
+               ", awarded=" + awarded +
+               ", loyaltyBalance=" + loyaltyBalance +
+               ", loyaltyActivePoints=" + loyaltyActivePoints +
+               ", loyaltyInactivePoints=" + loyaltyInactivePoints +
+               ", ndsMap=" + ndsMap +
+               ", sent=" + sent +
+               ", mustBeSent=" + mustBeSent +
+               ", paymentMethod=" + paymentMethod +
+               ", cardAmount=" + cardAmount +
+               ", cashAmount=" + cashAmount +
+               ", giftCardDetails=" + giftCardDetails +
+               ", properties=" + properties +
+               ", groupPublicId=" + groupPublicId +
+               '}';
+    }
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    orderGuid: ").append(toIndentedString(orderGuid)).append("\n");
-        sb.append("    orderCode: ").append(toIndentedString(orderCode)).append("\n");
-        sb.append("    groupCode: ").append(toIndentedString(groupCode)).append("\n");
-        sb.append("    groupGuid: ").append(toIndentedString(groupGuid)).append("\n");
-        sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
-        sb.append("    totalDiscount: ").append(toIndentedString(totalDiscount)).append("\n");
-        sb.append("    createdTs: ").append(toIndentedString(createdTs)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    atolData: ").append(toIndentedString(atolData)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    url: ").append(toIndentedString(url)).append("\n");
-        sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
-        sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
-        sb.append("    userPhone: ").append(toIndentedString(userPhone)).append("\n");
-        sb.append("    createdTsSource: ").append(toIndentedString(createdTsSource)).append("\n");
-        sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
-        sb.append("    items: ").append(toIndentedString(items)).append("\n");
-        sb.append("    prepaid: ").append(toIndentedString(prepaid)).append("\n");
-        sb.append("    loyalty: ").append(toIndentedString(loyalty)).append("\n");
-        sb.append("    cashier: ").append(toIndentedString(cashier)).append("\n");
-        sb.append("    posId: ").append(toIndentedString(posId)).append("\n");
-        sb.append("    address: ").append(toIndentedString(address)).append("\n");
-        sb.append("    placeOfSettlement: ").append(toIndentedString(placeOfSettlement)).append("\n");
-        sb.append("    chain: ").append(toIndentedString(chain)).append("\n");
-        sb.append("    loyaltyPromoText: ").append(toIndentedString(loyaltyPromoText)).append("\n");
-        sb.append("    promoText: ").append(toIndentedString(promoText)).append("\n");
-        sb.append("    giftCard: ").append(toIndentedString(giftCard)).append("\n");
-        sb.append("    giftCardTs: ").append(toIndentedString(giftCardTs)).append("\n");
-        sb.append("    giftCardAmount: ").append(toIndentedString(giftCardAmount)).append("\n");
-        sb.append("    bonusCard: ").append(toIndentedString(bonusCard)).append("\n");
-        sb.append("    redeemed: ").append(toIndentedString(redeemed)).append("\n");
-        sb.append("    awarded: ").append(toIndentedString(awarded)).append("\n");
-        sb.append("    loyaltyBalance: ").append(toIndentedString(loyaltyBalance)).append("\n");
-        sb.append("    loyaltyActivePoints: ").append(toIndentedString(loyaltyActivePoints)).append("\n");
-        sb.append("    loyaltyInactivePoints: ").append(toIndentedString(loyaltyInactivePoints)).append("\n");
-        sb.append("    ndsMap: ").append(toIndentedString(ndsMap)).append("\n");
-        sb.append("    sent: ").append(toIndentedString(sent)).append("\n");
-        sb.append("    mustBeSent: ").append(toIndentedString(mustBeSent)).append("\n");
-        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-        sb.append("    cardAmount: ").append(toIndentedString(cardAmount)).append("\n");
-        sb.append("    cashAmount: ").append(toIndentedString(cashAmount)).append("\n");
-        sb.append("    giftCardDetails: ").append(toIndentedString(giftCardDetails)).append("\n");
-        sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
-        sb.append("    groupPublicId: ").append(toIndentedString(groupPublicId)).append("\n");
-        sb.append("}");
-        return sb.toString();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ChequeDto chequeDto = (ChequeDto) o;
+
+        if (id != null ? !id.equals(chequeDto.id) : chequeDto.id != null) return false;
+        if (externalId != null ? !externalId.equals(chequeDto.externalId) : chequeDto.externalId != null) return false;
+        if (retailTransactionNumber != null ? !retailTransactionNumber.equals(chequeDto.retailTransactionNumber) : chequeDto.retailTransactionNumber != null)
+            return false;
+        if (retailCalendarDay != null ? !retailCalendarDay.equals(chequeDto.retailCalendarDay) : chequeDto.retailCalendarDay != null)
+            return false;
+        if (orderGuid != null ? !orderGuid.equals(chequeDto.orderGuid) : chequeDto.orderGuid != null) return false;
+        if (orderCode != null ? !orderCode.equals(chequeDto.orderCode) : chequeDto.orderCode != null) return false;
+        if (groupCode != null ? !groupCode.equals(chequeDto.groupCode) : chequeDto.groupCode != null) return false;
+        if (groupGuid != null ? !groupGuid.equals(chequeDto.groupGuid) : chequeDto.groupGuid != null) return false;
+        if (totalAmount != null ? !totalAmount.equals(chequeDto.totalAmount) : chequeDto.totalAmount != null)
+            return false;
+        if (totalDiscount != null ? !totalDiscount.equals(chequeDto.totalDiscount) : chequeDto.totalDiscount != null)
+            return false;
+        if (createdTs != null ? !createdTs.equals(chequeDto.createdTs) : chequeDto.createdTs != null) return false;
+        if (type != chequeDto.type) return false;
+        if (atolData != null ? !atolData.equals(chequeDto.atolData) : chequeDto.atolData != null) return false;
+        if (description != null ? !description.equals(chequeDto.description) : chequeDto.description != null)
+            return false;
+        if (url != null ? !url.equals(chequeDto.url) : chequeDto.url != null) return false;
+        if (userEmail != null ? !userEmail.equals(chequeDto.userEmail) : chequeDto.userEmail != null) return false;
+        if (userName != null ? !userName.equals(chequeDto.userName) : chequeDto.userName != null) return false;
+        if (userPhone != null ? !userPhone.equals(chequeDto.userPhone) : chequeDto.userPhone != null) return false;
+        if (createdTsSource != null ? !createdTsSource.equals(chequeDto.createdTsSource) : chequeDto.createdTsSource != null)
+            return false;
+        if (msgId != null ? !msgId.equals(chequeDto.msgId) : chequeDto.msgId != null) return false;
+        if (sourceRetailCheque != null ? !sourceRetailCheque.equals(chequeDto.sourceRetailCheque) : chequeDto.sourceRetailCheque != null)
+            return false;
+        if (channel != chequeDto.channel) return false;
+        if (items != null ? !items.equals(chequeDto.items) : chequeDto.items != null) return false;
+        if (prepaid != null ? !prepaid.equals(chequeDto.prepaid) : chequeDto.prepaid != null) return false;
+        if (loyalty != null ? !loyalty.equals(chequeDto.loyalty) : chequeDto.loyalty != null) return false;
+        if (cashier != null ? !cashier.equals(chequeDto.cashier) : chequeDto.cashier != null) return false;
+        if (posId != null ? !posId.equals(chequeDto.posId) : chequeDto.posId != null) return false;
+        if (address != null ? !address.equals(chequeDto.address) : chequeDto.address != null) return false;
+        if (placeOfSettlement != null ? !placeOfSettlement.equals(chequeDto.placeOfSettlement) : chequeDto.placeOfSettlement != null)
+            return false;
+        if (chain != chequeDto.chain) return false;
+        if (loyaltyPromoText != null ? !loyaltyPromoText.equals(chequeDto.loyaltyPromoText) : chequeDto.loyaltyPromoText != null)
+            return false;
+        if (promoText != null ? !promoText.equals(chequeDto.promoText) : chequeDto.promoText != null) return false;
+        if (giftCard != null ? !giftCard.equals(chequeDto.giftCard) : chequeDto.giftCard != null) return false;
+        if (giftCardTs != null ? !giftCardTs.equals(chequeDto.giftCardTs) : chequeDto.giftCardTs != null) return false;
+        if (giftCardAmount != null ? !giftCardAmount.equals(chequeDto.giftCardAmount) : chequeDto.giftCardAmount != null)
+            return false;
+        if (bonusCard != null ? !bonusCard.equals(chequeDto.bonusCard) : chequeDto.bonusCard != null) return false;
+        if (redeemed != null ? !redeemed.equals(chequeDto.redeemed) : chequeDto.redeemed != null) return false;
+        if (awarded != null ? !awarded.equals(chequeDto.awarded) : chequeDto.awarded != null) return false;
+        if (loyaltyBalance != null ? !loyaltyBalance.equals(chequeDto.loyaltyBalance) : chequeDto.loyaltyBalance != null)
+            return false;
+        if (loyaltyActivePoints != null ? !loyaltyActivePoints.equals(chequeDto.loyaltyActivePoints) : chequeDto.loyaltyActivePoints != null)
+            return false;
+        if (loyaltyInactivePoints != null ? !loyaltyInactivePoints.equals(chequeDto.loyaltyInactivePoints) : chequeDto.loyaltyInactivePoints != null)
+            return false;
+        if (ndsMap != null ? !ndsMap.equals(chequeDto.ndsMap) : chequeDto.ndsMap != null) return false;
+        if (sent != null ? !sent.equals(chequeDto.sent) : chequeDto.sent != null) return false;
+        if (mustBeSent != null ? !mustBeSent.equals(chequeDto.mustBeSent) : chequeDto.mustBeSent != null) return false;
+        if (paymentMethod != chequeDto.paymentMethod) return false;
+        if (cardAmount != null ? !cardAmount.equals(chequeDto.cardAmount) : chequeDto.cardAmount != null) return false;
+        if (cashAmount != null ? !cashAmount.equals(chequeDto.cashAmount) : chequeDto.cashAmount != null) return false;
+        if (giftCardDetails != null ? !giftCardDetails.equals(chequeDto.giftCardDetails) : chequeDto.giftCardDetails != null)
+            return false;
+        if (properties != null ? !properties.equals(chequeDto.properties) : chequeDto.properties != null) return false;
+        if (groupPublicId != null ? !groupPublicId.equals(chequeDto.groupPublicId) : chequeDto.groupPublicId != null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (externalId != null ? externalId.hashCode() : 0);
+        result = 31 * result + (retailTransactionNumber != null ? retailTransactionNumber.hashCode() : 0);
+        result = 31 * result + (retailCalendarDay != null ? retailCalendarDay.hashCode() : 0);
+        result = 31 * result + (orderGuid != null ? orderGuid.hashCode() : 0);
+        result = 31 * result + (orderCode != null ? orderCode.hashCode() : 0);
+        result = 31 * result + (groupCode != null ? groupCode.hashCode() : 0);
+        result = 31 * result + (groupGuid != null ? groupGuid.hashCode() : 0);
+        result = 31 * result + (totalAmount != null ? totalAmount.hashCode() : 0);
+        result = 31 * result + (totalDiscount != null ? totalDiscount.hashCode() : 0);
+        result = 31 * result + (createdTs != null ? createdTs.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (atolData != null ? atolData.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (url != null ? url.hashCode() : 0);
+        result = 31 * result + (userEmail != null ? userEmail.hashCode() : 0);
+        result = 31 * result + (userName != null ? userName.hashCode() : 0);
+        result = 31 * result + (userPhone != null ? userPhone.hashCode() : 0);
+        result = 31 * result + (createdTsSource != null ? createdTsSource.hashCode() : 0);
+        result = 31 * result + (msgId != null ? msgId.hashCode() : 0);
+        result = 31 * result + (sourceRetailCheque != null ? sourceRetailCheque.hashCode() : 0);
+        result = 31 * result + (channel != null ? channel.hashCode() : 0);
+        result = 31 * result + (items != null ? items.hashCode() : 0);
+        result = 31 * result + (prepaid != null ? prepaid.hashCode() : 0);
+        result = 31 * result + (loyalty != null ? loyalty.hashCode() : 0);
+        result = 31 * result + (cashier != null ? cashier.hashCode() : 0);
+        result = 31 * result + (posId != null ? posId.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (placeOfSettlement != null ? placeOfSettlement.hashCode() : 0);
+        result = 31 * result + (chain != null ? chain.hashCode() : 0);
+        result = 31 * result + (loyaltyPromoText != null ? loyaltyPromoText.hashCode() : 0);
+        result = 31 * result + (promoText != null ? promoText.hashCode() : 0);
+        result = 31 * result + (giftCard != null ? giftCard.hashCode() : 0);
+        result = 31 * result + (giftCardTs != null ? giftCardTs.hashCode() : 0);
+        result = 31 * result + (giftCardAmount != null ? giftCardAmount.hashCode() : 0);
+        result = 31 * result + (bonusCard != null ? bonusCard.hashCode() : 0);
+        result = 31 * result + (redeemed != null ? redeemed.hashCode() : 0);
+        result = 31 * result + (awarded != null ? awarded.hashCode() : 0);
+        result = 31 * result + (loyaltyBalance != null ? loyaltyBalance.hashCode() : 0);
+        result = 31 * result + (loyaltyActivePoints != null ? loyaltyActivePoints.hashCode() : 0);
+        result = 31 * result + (loyaltyInactivePoints != null ? loyaltyInactivePoints.hashCode() : 0);
+        result = 31 * result + (ndsMap != null ? ndsMap.hashCode() : 0);
+        result = 31 * result + (sent != null ? sent.hashCode() : 0);
+        result = 31 * result + (mustBeSent != null ? mustBeSent.hashCode() : 0);
+        result = 31 * result + (paymentMethod != null ? paymentMethod.hashCode() : 0);
+        result = 31 * result + (cardAmount != null ? cardAmount.hashCode() : 0);
+        result = 31 * result + (cashAmount != null ? cashAmount.hashCode() : 0);
+        result = 31 * result + (giftCardDetails != null ? giftCardDetails.hashCode() : 0);
+        result = 31 * result + (properties != null ? properties.hashCode() : 0);
+        result = 31 * result + (groupPublicId != null ? groupPublicId.hashCode() : 0);
+        return result;
     }
 
     /**
