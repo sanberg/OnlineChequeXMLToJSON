@@ -13,9 +13,16 @@ package ru.detmir.sap.mapping.model;
  */
 
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,42 +35,43 @@ import java.util.Map;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-02-15T05:59:41.749518627Z[GMT]")
 @XmlRootElement(namespace = "urn:DetMir.ru:Hybris:Finance", name = "SalesEmailCheckRequest")
 public class ChequeDto {
-
+    @SerializedName("id")
     private Integer id = null;
 
-
+    @SerializedName("externalId")
     private String externalId = null;
 
-
+    @SerializedName("retailTransactionNumber")
     private String retailTransactionNumber = null;
 
-
+    @SerializedName("retailCalendarDay")
     private String retailCalendarDay = null;
 
-
+    @SerializedName("orderGuid")
     private String orderGuid = null;
 
-
+    @SerializedName("orderCode")
     private String orderCode = null;
 
-
+    @SerializedName("groupCode")
     private String groupCode = null;
 
-
+    @SerializedName("groupGuid")
     private String groupGuid = null;
 
-
+    @SerializedName("totalAmount")
     private BigDecimal totalAmount = null;
 
-
+    @SerializedName("totalDiscount")
     private BigDecimal totalDiscount = null;
 
-
+    @SerializedName("createdTs")
     private Long createdTs = null;
 
     /**
      * Gets or Sets type
      */
+    @JsonAdapter(TypeEnum.Adapter.class)
     @XmlJavaTypeAdapter(TypeEnum.XMLAdapter.class)
     public enum TypeEnum {
         SALE("sale"),
@@ -90,7 +98,18 @@ public class ChequeDto {
             }
             return null;
         }
+        public static class Adapter extends TypeAdapter<TypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+                jsonWriter.value(String.valueOf(enumeration.getValue()));
+            }
 
+            @Override
+            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+                Object value = jsonReader.nextString();
+                return TypeEnum.fromValue((String)(value));
+            }
+        }
 
         public static class XMLAdapter extends XmlAdapter<String, TypeEnum> {
 
@@ -104,39 +123,40 @@ public class ChequeDto {
                 return v.getValue();
             }
         }
-    }
+    }  @SerializedName("type")
     private TypeEnum type = null;
 
-
+    @SerializedName("atolData")
     private AtolReportResponse atolData = null;
 
-
+    @SerializedName("description")
     private String description = null;
 
-
+    @SerializedName("url")
     private String url = null;
 
-
+    @SerializedName("userEmail")
     private String userEmail = null;
 
-
+    @SerializedName("userName")
     private String userName = null;
 
-
+    @SerializedName("userPhone")
     private String userPhone = null;
 
-
+    @SerializedName("createdTsSource")
     private Long createdTsSource = null;
 
-
+    @SerializedName("msgId")
     private String msgId = null;
 
-
+    @SerializedName("sourceRetailCheque")
     private SourceRetailChequeDto sourceRetailCheque = null;
 
     /**
      * Gets or Sets channel
      */
+    @JsonAdapter(ChannelEnum.Adapter.class)
     @XmlJavaTypeAdapter(ChannelEnum.XMLAdapter.class)
     public enum ChannelEnum {
         ONLINE("online"),
@@ -163,7 +183,18 @@ public class ChequeDto {
             }
             return null;
         }
+        public static class Adapter extends TypeAdapter<ChannelEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ChannelEnum enumeration) throws IOException {
+                jsonWriter.value(String.valueOf(enumeration.getValue()));
+            }
 
+            @Override
+            public ChannelEnum read(final JsonReader jsonReader) throws IOException {
+                Object value = jsonReader.nextString();
+                return ChannelEnum.fromValue((String)(value));
+            }
+        }
         public static class XMLAdapter extends XmlAdapter<String, ChannelEnum> {
 
             @Override
@@ -176,33 +207,34 @@ public class ChequeDto {
                 return v.getValue();
             }
         }
-    }
+    }  @SerializedName("channel")
     private ChannelEnum channel = null;
 
-
+    @SerializedName("items")
     private List<ItemDto> items = null;
 
-
+    @SerializedName("prepaid")
     private Boolean prepaid = null;
 
-
+    @SerializedName("loyalty")
     private LoyaltyTransactionDto loyalty = null;
 
-
+    @SerializedName("cashier")
     private String cashier = null;
 
-
+    @SerializedName("posId")
     private String posId = null;
 
-
+    @SerializedName("address")
     private String address = null;
 
-
+    @SerializedName("placeOfSettlement")
     private String placeOfSettlement = null;
 
     /**
      * Gets or Sets chain
      */
+    @JsonAdapter(ChainEnum.Adapter.class)
     @XmlJavaTypeAdapter(ChainEnum.XMLAdapter.class)
     public enum ChainEnum {
         ZOOZAVR("zoozavr"),
@@ -229,6 +261,18 @@ public class ChequeDto {
             }
             return null;
         }
+        public static class Adapter extends TypeAdapter<ChainEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ChainEnum enumeration) throws IOException {
+                jsonWriter.value(String.valueOf(enumeration.getValue()));
+            }
+
+            @Override
+            public ChainEnum read(final JsonReader jsonReader) throws IOException {
+                Object value = jsonReader.nextString();
+                return ChainEnum.fromValue((String)(value));
+            }
+        }
 
         public static class XMLAdapter extends XmlAdapter<String, ChainEnum> {
 
@@ -242,54 +286,55 @@ public class ChequeDto {
                 return v.getValue();
             }
         }
-    }
+    }  @SerializedName("chain")
     private ChainEnum chain = null;
 
-
+    @SerializedName("loyaltyPromoText")
     private String loyaltyPromoText = null;
 
-
+    @SerializedName("promoText")
     private String promoText = null;
 
-
+    @SerializedName("giftCard")
     private String giftCard = null;
 
-
+    @SerializedName("giftCardTs")
     private Long giftCardTs = null;
 
-
+    @SerializedName("giftCardAmount")
     private BigDecimal giftCardAmount = null;
 
-
+    @SerializedName("bonusCard")
     private String bonusCard = null;
 
-
+    @SerializedName("redeemed")
     private BigDecimal redeemed = null;
 
-
+    @SerializedName("awarded")
     private BigDecimal awarded = null;
 
-
+    @SerializedName("loyaltyBalance")
     private BigDecimal loyaltyBalance = null;
 
-
+    @SerializedName("loyaltyActivePoints")
     private BigDecimal loyaltyActivePoints = null;
 
-
+    @SerializedName("loyaltyInactivePoints")
     private BigDecimal loyaltyInactivePoints = null;
 
-
+    @SerializedName("ndsMap")
     private Map<String, BigDecimal> ndsMap = null;
 
-
+    @SerializedName("sent")
     private Boolean sent = null;
 
-
+    @SerializedName("mustBeSent")
     private Boolean mustBeSent = null;
 
     /**
      * Gets or Sets paymentMethod
      */
+    @JsonAdapter(PaymentMethodEnum.Adapter.class)
     @XmlJavaTypeAdapter(PaymentMethodEnum.XMLAdapter.class)
     public enum PaymentMethodEnum {
         CARD("card"),
@@ -326,6 +371,19 @@ public class ChequeDto {
             }
             return null;
         }
+        public static class Adapter extends TypeAdapter<PaymentMethodEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final PaymentMethodEnum enumeration) throws IOException {
+                jsonWriter.value(String.valueOf(enumeration.getValue()));
+            }
+
+            @Override
+            public PaymentMethodEnum read(final JsonReader jsonReader) throws IOException {
+                Object value = jsonReader.nextString();
+                return PaymentMethodEnum.fromValue((String)(value));
+            }
+        }
+
         public static class XMLAdapter extends XmlAdapter<String, PaymentMethodEnum> {
 
             @Override
@@ -338,22 +396,22 @@ public class ChequeDto {
                 return v.getValue();
             }
         }
-    }
+    }  @SerializedName("paymentMethod")
     private PaymentMethodEnum paymentMethod = null;
 
-
+    @SerializedName("cardAmount")
     private BigDecimal cardAmount = null;
 
-
+    @SerializedName("cashAmount")
     private BigDecimal cashAmount = null;
 
-
+    @SerializedName("giftCardDetails")
     private List<GiftCardTransactionDto> giftCardDetails = null;
 
-
+    @SerializedName("properties")
     private Map<String, String> properties = null;
 
-
+    @SerializedName("groupPublicId")
     private Boolean groupPublicId = null;
 
     public ChequeDto id(Integer id) {

@@ -10,9 +10,15 @@ package ru.detmir.sap.mapping.model;/*
  * Do not edit the class manually.
  */
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +29,13 @@ import java.util.Objects;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-02-15T05:59:41.749518627Z[GMT]")
 public class ItemDto {
-
+  @SerializedName("id")
   private Integer id = null;
 
   /**
    * Gets or Sets itemType
    */
+  @JsonAdapter(ItemTypeEnum.Adapter.class)
   @XmlJavaTypeAdapter(ItemTypeEnum.XMLAdapter.class)
   public enum ItemTypeEnum {
     DONATION("donation"),
@@ -41,7 +48,7 @@ public class ItemDto {
     ItemTypeEnum(String value) {
       this.value = value;
     }
-    public String getItemType() {
+    public String getValue() {
       return value;
     }
 
@@ -57,7 +64,18 @@ public class ItemDto {
       }
       return null;
     }
+    public static class Adapter extends TypeAdapter<ItemTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ItemTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
 
+      @Override
+      public ItemTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ItemTypeEnum.fromValue((String)(value));
+      }
+    }
 
     public static class XMLAdapter extends XmlAdapter<String, ItemTypeEnum> {
 
@@ -68,33 +86,34 @@ public class ItemDto {
 
       @Override
       public String marshal(ItemTypeEnum v) throws Exception {
-        return v.getItemType();
+        return v.getValue();
       }
     }
-  }
+  }  @SerializedName("itemType")
   private ItemTypeEnum itemType = null;
 
-
+  @SerializedName("orderCode")
   private String orderCode = null;
 
-
+  @SerializedName("productName")
   private String productName = null;
 
-
+  @SerializedName("productCode")
   private String productCode = null;
 
-
+  @SerializedName("quantity")
   private Integer quantity = null;
 
-
+  @SerializedName("price")
   private BigDecimal price = null;
 
-
+  @SerializedName("position")
   private Integer position = null;
 
   /**
    * Gets or Sets ndsCode
    */
+  @JsonAdapter(NdsCodeEnum.Adapter.class)
   @XmlJavaTypeAdapter(NdsCodeEnum.XMLAdapter.class)
   public enum NdsCodeEnum {
     NONE("NONE"),
@@ -125,6 +144,18 @@ public class ItemDto {
       }
       return null;
     }
+    public static class Adapter extends TypeAdapter<NdsCodeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NdsCodeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NdsCodeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NdsCodeEnum.fromValue((String)(value));
+      }
+    }
 
     public static class XMLAdapter extends XmlAdapter<String, NdsCodeEnum> {
 
@@ -140,33 +171,31 @@ public class ItemDto {
     }
 
 
-  }
-
-
+  }  @SerializedName("ndsCode")
   private NdsCodeEnum ndsCode = null;
 
-
+  @SerializedName("discountInfo")
   private List<DiscountInfo> discountInfo = null;
 
-
+  @SerializedName("createdTs")
   private Long createdTs = null;
 
-
+  @SerializedName("chequeId")
   private Integer chequeId = null;
 
-
+  @SerializedName("loyaltyPercent")
   private Integer loyaltyPercent = null;
 
-
+  @SerializedName("vendorCode")
   private String vendorCode = null;
 
-
+  @SerializedName("vendorPhone")
   private String vendorPhone = null;
 
-
+  @SerializedName("vendorName")
   private String vendorName = null;
 
-
+  @SerializedName("vendorInn")
   private String vendorInn = null;
 
   public ItemDto id(Integer id) {

@@ -10,6 +10,7 @@ package ru.detmir.sap.mapping.model;/*
  * Do not edit the class manually.
  */
 
+import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
@@ -19,31 +20,31 @@ import java.util.Objects;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-02-15T05:59:41.749518627Z[GMT]")
 public class AtolReportResponse {
-
+  @SerializedName("callbackUrl")
   private String callbackUrl = null;
 
-
+  @SerializedName("daemonCode")
   private String daemonCode = null;
 
-
+  @SerializedName("deviceCode")
   private String deviceCode = null;
 
-
+  @SerializedName("warnings")
   private String warnings = null;
 
-
+  @SerializedName("externalId")
   private String externalId = null;
 
-
+  @SerializedName("groupCode")
   private String groupCode = null;
 
-
+  @SerializedName("status")
   private String status = null;
 
-
+  @SerializedName("uuid")
   private String uuid = null;
 
-
+  @SerializedName("payload")
   private AtolReportPayload payload = null;
 
   public AtolReportResponse callbackUrl(String callbackUrl) {

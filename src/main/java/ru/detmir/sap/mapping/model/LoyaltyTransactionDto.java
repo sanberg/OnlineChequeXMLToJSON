@@ -10,6 +10,7 @@ package ru.detmir.sap.mapping.model;/*
  * Do not edit the class manually.
  */
 
+import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
@@ -19,10 +20,10 @@ import java.util.Objects;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-02-15T05:59:41.749518627Z[GMT]")
 public class LoyaltyTransactionDto {
-
+  @SerializedName("transactionId")
   private String transactionId = null;
 
-
+  @SerializedName("barcode")
   private String barcode = null;
 
   public LoyaltyTransactionDto transactionId(String transactionId) {

@@ -1,15 +1,16 @@
 package ru.detmir.sap.mapping.model;
 
+import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
 public class SourceRetailChequeDto {
-
+    @SerializedName("transactionNumber")
     private String transactionNumber = null;
-
+    @SerializedName("calendarDay")
     private String calendarDay = null;
 
-
+    @SerializedName("posId")
     private String posId = null;
 
     public String getTransactionNumber() {
