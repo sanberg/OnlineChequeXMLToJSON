@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="com.sap.aii.mapping.api.filter">
+    <CLASSES>
+      <root url="jar://G:/sap pi java dependencies/DesigntimeAPIs/com.sap.aii.mapping.api.filter.jar!/" />
+      <root url="jar://G:/sap pi java dependencies/DesigntimeAPIs/com.sap.xi.mapping.tool.lib.filter.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/src/main/java" />
+      <root url="file://$PROJECT_DIR$/src/test/java" />
+    </SOURCES>
+  </library>
+</component>
